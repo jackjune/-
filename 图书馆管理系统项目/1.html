@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>疫情对咨询影响程度</title>
+    <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- 使用 canvas 标签来绘制图表 -->
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script>
+// 在这里编写 JavaScript 代码来生成柱状图
+
+// 示例数据
+const data = {
+    labels: ['微弱影响', '中度影响', '较大影响', '重度影响'],
+    datasets: [{
+        label: '影响程度',
+        data: [40, 35, 34, 37],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+        ],
+        borderWidth: 1,
+    }]
+};
+
+// 获取 canvas 元素
+const ctx = document.getElementById('myChart').getContext('2d');
+
+// 创建柱状图
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
